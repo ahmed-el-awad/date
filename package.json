@@ -3,5 +3,8 @@
     "dayjs": "^1.11.11",
     "dprint": "^0.45.1"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "tailwind": "^4.0.0"
+  }
 }
