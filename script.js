@@ -1,30 +1,14 @@
 import dayjs from 'dayjs';
 
+let dateFormat = 'dddd, DD/MMM/YYYY';
+let timeFormat = 'hh:mm A';
+
+// TODO: dayjs() takes the local time, it's not always GST
 let uae = dayjs(); // GST
-let lousiana = uae.subtract('9', 'hour'); // CT, 9 hours behind GST
+let lousiana = uae.subtract('9', 'hour'); // CT, 9 hours behind GST (doesn't account for daylight savings)
 
-const {
-  $y: orig_year,
-  $M: orig_month,
-  $D: orig_day,
-  $H: orig_hour,
-  $m: orig_minute,
-  $s: orig_second,
-} = uae;
+console.log(`UAE Date: ${uae.format(dateFormat)}`);
+console.log(`UAE Time: ${uae.format(timeFormat)}`);
 
-console.log(
-  `UAE date is: ${orig_year}/${orig_month}/${orig_day} time is: ${orig_hour}:${orig_minute}:${orig_second}`,
-);
-
-const {
-  $y: conv_year,
-  $M: conv_month,
-  $D: conv_day,
-  $H: conv_hour,
-  $m: conv_minute,
-  $s: conv_second,
-} = lousiana;
-
-console.log(
-  `LA date is: ${conv_year}/${conv_month}/${conv_day} time is: ${conv_hour}:${conv_minute}:${conv_second}`,
-);
+console.log(`Lousiana Date: ${lousiana.format(dateFormat)}`);
+console.log(`Lousiana Time: ${lousiana.format(timeFormat)}`);
